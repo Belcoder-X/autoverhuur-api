@@ -59,3 +59,12 @@ def kijk():
     lijst = cursor.fetchall()
     connection.close()
     return lijst
+
+@app.get("/autos")
+def autos():
+    connection = sqlite3.connect("verhuur.db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM autos")
+    lijst = cursor.fetchall()
+    connection.close()
+    return lijst
